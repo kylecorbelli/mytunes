@@ -38,7 +38,7 @@ var AppModel = Backbone.Model.extend({
       this.set('currentSong', song);
     }, this);
 
-        var localQueue;
+    var localQueue;
     var app = this;
     if (localStorage.songQueue) {
       localQueue = _.each(JSON.parse(localStorage.songQueue), function(attr) {

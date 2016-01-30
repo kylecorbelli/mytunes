@@ -22,8 +22,10 @@ h1 {
   margin:0;
   padding: 2em 0;
   color:white;
+  font-family: 'Permanent Marker', cursive;
+  letter-spacing: 0.25em;
   margin-bottom: 2em;
-  background: url(../images/bg.jpg) no-repeat center -15% fixed; 
+  background: url(../images/bg.jpg) no-repeat center top fixed; 
   background-size: 100%;
 }
 .overlay {
@@ -39,6 +41,13 @@ h1 {
 .container {
   background-color: white;
 
+}
+.song-info {
+  text-align: center;
+  font-weight: bold;
+}
+audio {
+  width:100%;
 }
 .queue-entry, .library-entry {
   cursor:pointer;
