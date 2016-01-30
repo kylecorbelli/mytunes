@@ -27,11 +27,7 @@ var SongQueue = Songs.extend({
 
     this.on('change add remove', function() {
       localStorage.songQueue = JSON.stringify(this.toJSON());
-    });
-
-    if (localStorage.songQueue) {
-      this.add(JSON.parse(localStorage.songQueue));
-    }
+    }, this);
 
   },
   

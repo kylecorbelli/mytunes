@@ -20,6 +20,11 @@ var AppView = Backbone.View.extend({
   },
 
   render: function() {
+    if (this.model.get('currentSong').get('url')) {
+      this.playerView.setSong(this.model.get('currentSong'));
+      this.playerView.play();
+    }
+
     var $header = $('<div class="row"><h1>myTunes</h1></div>');
     var $row2 = $('<div class="row"></div>');
 
