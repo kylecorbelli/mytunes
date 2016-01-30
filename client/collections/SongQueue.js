@@ -19,6 +19,8 @@ var SongQueue = Songs.extend({
       this.remove(song);
       if (this.length < 1) {
         this.trigger('empty');
+      } else {
+        this.playFirst();
       }
     }, this);
   },

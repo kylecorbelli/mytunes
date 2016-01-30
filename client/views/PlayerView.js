@@ -3,28 +3,37 @@ var PlayerView = Backbone.View.extend({
 
   // HTML5 (native) audio tag is being used
   // see: https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Using_HTML5_audio_and_video
-  el: '<audio controls autoplay />',
+  el: '<div></div>',
+  $playerHtml: $('<audio controls autoplay />'),
+  $header: $('<header></header>'),
 
   initialize: function() {
+    this.model = null;
+    this.render();
   },
 
   audioClear: function() {
-    this.el.pause();
-    this.$el.attr('src', '');
+    this.$playerHtml[0].pause();
+    this.$playerHtml.attr('src', '');
+    this.model = null;
+    this.render();
   },
 
   play: function() {
-    this.el.play();
+    this.$playerHtml[0].play();
   },
 
   setSong: function(song) {
     this.model = song;
-    this.el.onended = this.model.ended.bind(this.model);
+    this.$playerHtml[0].onended = this.model.ended.bind(this.model);
     this.render();
   },
 
   render: function() {
-    return this.$el.attr('src', this.model ? this.model.get('url') : '');
+    this.$header.text( this.model ? (this.model.get('artist') + ' - ' + this.model.get ('title')) : 'No Song');
+    this.$playerHtml.attr('src', this.model ? this.model.get('url') : '');
+    this.$el.append(this.$header).append(this.$playerHtml);
+    return this.$el;
   }
 
 });
