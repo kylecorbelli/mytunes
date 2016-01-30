@@ -13,6 +13,7 @@ h1 {
 }
 .queue-entry, .library-entry {
   cursor:pointer;
+  padding: 0.2em 0.5em;
 }
 
 .queue-entry:hover, .library-entry:hover {
@@ -25,12 +26,18 @@ h1 {
   color:red;
   font-weight: bold; 
 }
+.queue-entry:first-child {
+  background-color: rgba(91, 215, 91, 0.8);
+  color:white;
+  border-radius: 5px;
+}
 
 .library-entry:hover::after {
   content: '+';
   margin-left: 0.5em;
   color:#33cc33;
   font-weight: bold; 
+  background:none;
 }
 
 .playcount {

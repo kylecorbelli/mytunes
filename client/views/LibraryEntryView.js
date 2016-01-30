@@ -4,9 +4,9 @@ var LibraryEntryView = Backbone.View.extend({
     this.model.on('change', this.render, this);
   },
 
-  tagName: 'ul',
-  className: 'list-unstyled',
-  template: _.template('<li class="library-entry"><%= artist %> - <%= title %> <span class="playcount"><%= playCount + " " + ("play").pluralize(playCount) %></span></li>'),
+  tagName:"li",
+  className:"library-entry",
+  template: _.template('<%= artist %> - <%= title %> <span class="playcount"><%= playCount + " " + ("play").pluralize(playCount) %></span>'),
 
   events: {
     'click': function() {

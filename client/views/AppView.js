@@ -25,7 +25,7 @@ var AppView = Backbone.View.extend({
       this.playerView.play();
     }
 
-    var $header = $('<div class="row"><h1>myTunes</h1></div>');
+    var $header = $('<div class="row page-header"><h1>myTunes</h1></div>');
     var $row2 = $('<div class="row"></div>');
 
     var $leftCol = $('<div class="col-sm-6"></div>');
