@@ -4,9 +4,10 @@ var SongQueueEntryView = Backbone.View.extend({
     this.model.on('change', this.render, this);
   },
 
-  tagName: 'tr',
+  tagName: 'ul',
+  className: 'list-unstyled',
 
-  template: _.template('<td>(<%= artist %>)</td><td><%= title %></td><td><%= playCount %> plays</td>'),
+  template: _.template('<li class="queue-entry"><%= artist %> - <%= title %> (<%= playCount %> plays)</li>'),
 
   events: {
     'click': function() {

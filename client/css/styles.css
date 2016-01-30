@@ -1,0 +1,9 @@
+.queue-entry {
+  cursor:pointer;
+}
+.queue-entry:hover::before {
+  content: 'X';
+  margin-right: 0.5em;
+  color:red;
+  font-weight: bold; 
+}
