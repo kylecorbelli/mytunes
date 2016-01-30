@@ -23,10 +23,21 @@ var SongQueue = Songs.extend({
         this.playFirst();
       }
     }, this);
+
+
+    this.on('change add remove', function() {
+      localStorage.songQueue = JSON.stringify(this.toJSON());
+    });
+
+    if (localStorage.songQueue) {
+      this.add(JSON.parse(localStorage.songQueue));
+    }
+
   },
   
   playFirst: function() {
     this.at(0).play();
   }
+
 
 });
