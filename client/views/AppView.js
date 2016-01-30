@@ -25,7 +25,6 @@ var AppView = Backbone.View.extend({
       this.playerView.play();
     }
 
-    var $header = $('<div class="row page-header"><h1>myTunes</h1></div>');
     var $row2 = $('<div class="row"></div>');
 
     var $leftCol = $('<div class="col-sm-6"></div>');
@@ -35,7 +34,7 @@ var AppView = Backbone.View.extend({
     $rightCol.append(this.libraryView.$el);
 
     $row2.append($leftCol).append($rightCol);
-    return this.$el.html([$header, $row2]);
+    return this.$el.html($row2);
     //   this.libraryView.$el,
     //   this.songQueueView.$el
     // ]);

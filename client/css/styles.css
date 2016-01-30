@@ -1,12 +1,41 @@
+/* apply a natural box layout model to all elements, but allowing components to change */
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
 body {
   /*background-color: #999;*/
 }
 
 h1 {
+  position: relative;
   text-align: center;
   margin-bottom: 30px;
+  z-index: 5;
 }
-
+.header {
+  position: relative;
+  width:100%;
+  margin:0;
+  padding: 2em 0;
+  color:white;
+  margin-bottom: 2em;
+  background: url(../images/bg.jpg) no-repeat center -15% fixed; 
+  background-size: 100%;
+}
+.overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(127, 127, 127, 0.2);
+  background-image: radial-gradient(#333, transparent);
+  background-size: 2px 2px;
+}
 .container {
   background-color: white;
 
