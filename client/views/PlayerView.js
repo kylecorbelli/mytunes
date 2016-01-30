@@ -8,6 +8,15 @@ var PlayerView = Backbone.View.extend({
   initialize: function() {
   },
 
+  audioClear: function() {
+    this.el.pause();
+    this.$el.attr('src', '');
+  },
+
+  play: function() {
+    this.el.play();
+  },
+
   setSong: function(song) {
     this.model = song;
     this.el.onended = this.model.ended.bind(this.model);

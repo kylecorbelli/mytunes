@@ -6,8 +6,7 @@ var SongQueueEntryView = Backbone.View.extend({
 
   tagName: 'ul',
   className: 'list-unstyled',
-
-  template: _.template('<li class="queue-entry"><%= artist %> - <%= title %> (<%= playCount %> plays)</li>'),
+  template: _.template('<li class="queue-entry"><%= artist %> - <%= title %> <span class="playcount"><%= playCount + " " + ("play").pluralize(playCount) %></span></li>'),
 
   events: {
     'click': function() {

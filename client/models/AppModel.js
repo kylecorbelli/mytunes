@@ -1,4 +1,12 @@
 // App.js - Defines a backbone model class for the whole app.
+
+// helper method to make things pretty
+String.prototype.pluralize = function(count, plural)
+{
+  plural = plural || this + 's';
+  return (count === 1 ? this : plural); 
+};
+
 var AppModel = Backbone.Model.extend({
 
   initialize: function(params) {
@@ -12,6 +20,15 @@ var AppModel = Backbone.Model.extend({
     end up referring to the window. That's just what happens with all JS events. The handlers end up
     getting called from the window (unless we override it, as we do here). */
     
+
+    this.get('songQueue').on('empty', function() {
+      this.trigger('queueEmpty');
+    }, this);
+
+    this.get('songQueue').on('play', function(song) {
+      this.set('currentSong', song);
+    }, this);
+
     params.library.on('enqueue', function(song) {
       this.get('songQueue').add(song);
     }, this);

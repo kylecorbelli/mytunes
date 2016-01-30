@@ -10,17 +10,27 @@ var AppView = Backbone.View.extend({
     // ONLY receive change events for the specific property, 'currentSong'
     this.model.on('change:currentSong', function(model) {
       this.playerView.setSong(model.get('currentSong'));
+      this.playerView.play();
+    }, this);
+
+
+    this.model.on('queueEmpty', function(model) {
+      this.playerView.audioClear();
     }, this);
   },
 
   render: function() {
-    var $leftCol = $('<div class="col-sm-4 col-sm-offset-1"></div>');
+    var $header = $('<div class="row"><h1>myTunes</h1></div>');
+    var $row2 = $('<div class="row"></div>');
+
+    var $leftCol = $('<div class="col-sm-6"></div>');
     $leftCol.append(this.playerView.$el).append(this.songQueueView.$el);
 
-    var $rightCol = $('<div class="col-sm-4 col-sm-offset-2"></div>');
+    var $rightCol = $('<div class="col-sm-6"></div>');
     $rightCol.append(this.libraryView.$el);
 
-    return this.$el.html([$leftCol, $rightCol]);
+    $row2.append($leftCol).append($rightCol);
+    return this.$el.html([$header, $row2]);
     //   this.libraryView.$el,
     //   this.songQueueView.$el
     // ]);

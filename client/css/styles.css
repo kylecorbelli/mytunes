@@ -1,9 +1,40 @@
-.queue-entry {
+body {
+  /*background-color: #999;*/
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.container {
+  background-color: white;
+
+}
+.queue-entry, .library-entry {
   cursor:pointer;
 }
-.queue-entry:hover::before {
+
+.queue-entry:hover, .library-entry:hover {
+  color:#999;
+}
+
+.queue-entry:hover::after {
   content: 'X';
-  margin-right: 0.5em;
+  margin-left: 0.5em;
   color:red;
   font-weight: bold; 
+}
+
+.library-entry:hover::after {
+  content: '+';
+  margin-left: 0.5em;
+  color:#33cc33;
+  font-weight: bold; 
+}
+
+.playcount {
+  font-size: 0.8em;
+  font-style: italic;
+  color: #888;
 }
