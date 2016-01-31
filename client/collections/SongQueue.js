@@ -16,10 +16,11 @@ var SongQueue = Songs.extend({
     }, this);
 
     this.on('dequeue', function(song) {
+      var doPlay = this.indexOf(song) === 0;
       this.remove(song);
       if (this.length < 1) {
         this.trigger('empty');
-      } else {
+      } else if (doPlay){
         this.playFirst();
       }
     }, this);
