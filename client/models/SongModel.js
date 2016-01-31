@@ -2,7 +2,8 @@
 var SongModel = Backbone.Model.extend({
   
   defaults: {
-    playCount : 0
+    playCount : 0,
+    likes: 0
   },
 
   play: function() {
@@ -20,6 +21,14 @@ var SongModel = Backbone.Model.extend({
 
   ended: function() {
     this.trigger('ended', this);
+  },
+
+  upvote: function() {
+    this.set('likes', this.get('likes') + 1);
+  },
+
+  downvote: function() {
+    this.set('likes', this.get('likes') - 1);
   }
 
 });

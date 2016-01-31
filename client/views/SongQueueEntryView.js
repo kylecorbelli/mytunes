@@ -7,12 +7,19 @@ var SongQueueEntryView = Backbone.View.extend({
   tagName:"li",
   className:"queue-entry",
 
-  template: _.template('<%= artist %> - <%= title %> <span class="playcount"><%= playCount + " " + ("play").pluralize(playCount) %></span>'),
+  template: _.template('<span class="glyphicon glyphicon-thumbs-up"></span><span class="like-count"><%= likes %></span><span class="glyphicon glyphicon-thumbs-down"></span><span class="track-info"><%= artist %> - <%= title %></span><span class="playcount"><%= playCount + " " + ("play").pluralize(playCount) %></span>'),
 
   events: {
-    'click': function() {
+    'click .track-info': function() {
       this.model.dequeue();
+    },
+    'click .glyphicon-thumbs-up': function() {
+      this.model.upvote();
+    },
+    'click .glyphicon-thumbs-down': function() {
+      this.model.downvote();
     }
+
   },
 
   render: function(){
