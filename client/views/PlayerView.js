@@ -3,7 +3,7 @@ var PlayerView = Backbone.View.extend({
 
   // HTML5 (native) audio tag is being used
   // see: https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Using_HTML5_audio_and_video
-  el: '<div><h3>Now Playing</h3></div>',
+  el: '<div class="panel panel-defualt"><h3>Now Playing</h3></div>',
   $playerHtml: $('<audio controls autoplay />'),
   $songInfo: $('<div class="song-info"></div>'),
 

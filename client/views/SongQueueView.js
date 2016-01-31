@@ -2,7 +2,7 @@
 var SongQueueView = Backbone.View.extend({
 
   tagName: "div",
-  // className: "panel panel-defualt",
+  className: "panel panel-defualt",
 
   initialize: function() {
     this.collection.on('add remove', this.render, this);

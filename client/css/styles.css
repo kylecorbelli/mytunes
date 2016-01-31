@@ -6,9 +6,18 @@ html {
   box-sizing: inherit;
 }
 
-body {
-  /*background-color: #999;*/
+html {
+background-color: #AAA; /*
+  background: url(../images/board.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;*/
 }
+body {
+  background:none;
+}
+
 
 h1 {
   position: relative;
@@ -38,9 +47,14 @@ h1 {
   background-image: radial-gradient(#333, transparent);
   background-size: 2px 2px;
 }
-.container {
-  background-color: white;
 
+.container {
+  /*background-color: white;*/
+
+}
+
+.panel {
+  padding: 1em;
 }
 .song-info {
   text-align: center;
@@ -78,6 +92,22 @@ audio {
   background:none;
 }
 
+.voting {
+  display: inline-block;
+  background-color: #999;
+  border-radius: 5px;
+  padding:2px;
+  color: white;
+  font-size: 0.9em;
+  line-height: 1.1; 
+}
+.glyphicon-thumbs-up:hover {
+  color:green;
+}
+
+.glyphicon-thumbs-down:hover {
+  color:red;
+}
 .playcount {
   font-size: 0.8em;
   font-style: italic;

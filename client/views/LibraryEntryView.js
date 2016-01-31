@@ -6,13 +6,27 @@ var LibraryEntryView = Backbone.View.extend({
 
   tagName:"li",
   className:"library-entry",
-  template: _.template('<%= artist %> - <%= title %> <span class="playcount"><%= playCount + " " + ("play").pluralize(playCount) %></span>'),
+  template: _.template(['<div class="voting">',
+                          '<span class="glyphicon glyphicon-thumbs-up"></span>',
+                          '<span class="like-count"><%= likes %></span>',
+                          '<span class="glyphicon glyphicon-thumbs-down"></span>',
+                        '</div>',  
+                        '<span class="track-info"><%= artist %> - <%= title %></span>',
+                        '<span class="playcount">',
+                          '<%= playCount + " " + ("play").pluralize(playCount) %>',
+                        '</span>'].join(' ')),
 
   events: {
-    'click': function() {
-      // this.model.play();
+    'click .track-info': function() {
       this.model.enqueue();
+    },
+    'click .glyphicon-thumbs-up': function() {
+      this.model.upvote();
+    },
+    'click .glyphicon-thumbs-down': function() {
+      this.model.downvote();
     }
+
   },
 
   render: function(){

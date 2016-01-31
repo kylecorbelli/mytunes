@@ -2,7 +2,7 @@
 var LibraryView = Backbone.View.extend({
  
   tagName: "div",
-  // className: "panel panel-defualt",
+  className: "panel panel-defualt",
 
   initialize: function() {
     this.render();
